@@ -53,22 +53,34 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div
+        className={
+          this.state.country
+            ? this.state.temp > 77
+              ? "App hot"
+              : "App cold"
+            : "App"
+        }
+      >
         <form onSubmit={this.getWeather}>
           <input type="text" name="countrySearch" />
           <button type="submit">Search</button>
         </form>
         <div className="Container">
-          <div className="Temp">
-            {this.state.temp && <span>{Math.round(this.state.temp)}°F,</span>}
-            {this.state.weather && <span>{this.state.weather}</span>}
-            {this.state.humidity && <span>{this.state.humidity}%</span>}
+          <div className={this.state.country ? "Temp" : ""}>
+            <div>
+              {this.state.temp && <span>{Math.round(this.state.temp)}°F,</span>}
+              {this.state.weather && <span> {this.state.weather}</span>}
+            </div>
+            {this.state.humidity && (
+              <span>Humidity: {this.state.humidity}%</span>
+            )}
           </div>
-          <div className="Country-Info">
+          <div className={this.state.country ? "Country-Info" : ""}>
             {this.state.country && <span>{this.state.country},</span>}
-            {this.state.countryCode && <span>{this.state.countryCode}</span>}
+            {this.state.countryCode && <span> {this.state.countryCode}</span>}
           </div>
-          <div className="Error">
+          <div className={this.state.error ? "Error" : ""}>
             {this.state.error && <span>{this.state.error}</span>}
           </div>
         </div>
