@@ -1,4 +1,4 @@
-# React-Weather-App
+# React-Weather-App:
 
 Modern Weather App designed using OpenWeather API, React, JavaScript, and CSS. This app provides the weather in Fahrenheit Degrees, the humidity, and the current sky conditions such as clear, windy, cloudy, or rainy. Also allows access to current weather data for any location including over 200,000 cities.
 
